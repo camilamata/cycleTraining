@@ -49,7 +49,7 @@ const getByName = async(req, res) => {
 const deleteById = async (req, res) => {
     try { 
                       
-        const getUser = await userModel.findByIdAndDelete({id : req.params.id})
+        const getUser = await userModel.findById(req.params.id)
 
         if(!getUser) {
          
@@ -59,7 +59,7 @@ const deleteById = async (req, res) => {
                     query: req.params
                 }
             }
-        
+        await getUser.delete()
         res.status(200).json([{
             "mensagem": "Atleta deletada com sucesso.",
             "Atleta deletada": getUser}])
