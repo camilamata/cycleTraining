@@ -1,0 +1,29 @@
+{
+  "name": "cycletraining",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/camilamata/cycleTraining.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/camilamata/cycleTraining/issues"
+  },
+  "homepage": "https://github.com/camilamata/cycleTraining#readme",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "cors": "^2.8.5",
+    "dotenv-safe": "^8.2.0",
+    "express": "^4.18.1",
+    "mongoose": "^6.4.6",
+    "nodemon": "^2.0.19"
+  }
+}
