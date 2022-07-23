@@ -1,7 +1,6 @@
-const userSchema = require("../models/userSchema");
 const bcrypt = require("bcrypt");
-const userModel = require("../models/userSchema");
 const ObjectId = require("mongodb").ObjectId;
+const userModel = require("../models/userSchema");
 
 
 const register = async (req, res) => {
@@ -9,7 +8,7 @@ const register = async (req, res) => {
     req.body.password = hashedPassword;    
     try {
         const { name, email, password, age, workoutPreference } = req.body;
-        const newUser = await userSchema.create({name, email, password, age, workoutPreference});
+        const newUser = await userModel.create({name, email, password, age, workoutPreference});
         const registeredUser = await newUser.save();
 
         if(registeredUser) {
@@ -27,7 +26,7 @@ const register = async (req, res) => {
 const getByName = async(req, res) => {    
     try { 
         const name = req.query.name
-        const foundUser = await userSchema.find({name: {$regex : name, $options: 'i'}})
+        const foundUser = await userModel.find({name: {$regex : name, $options: 'i'}})
 
         if(!foundUser) {
             throw new Error ("Nenhuma atleta com esse nome. Tente novamente")

@@ -6,7 +6,7 @@ const router = express.Router();
 
 router.post("/registerChart", controller.register);
 router.get("/searchChart", controller.getByName);
-//router.delete("/deleteUser", controller.deleteById);
-//router.put("/updateUser", controller.updateUser);
+router.delete("/deleteChart/:id", controller.deleteById);
+router.put("/updateChart/:id", controller.updateChart);
 
-module.exports = router;
+module.exports = router; 
