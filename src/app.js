@@ -13,6 +13,7 @@ db.connect();
 
 const userRouter = require("./routes/userRoutes");
 const chartsRouter = require("./routes/chartsRoutes");
+const cycleRouter = require("./routes/cycleRoutes");
 
 app.get("/", (req, res) => {
     res.status(200).send({
@@ -25,6 +26,7 @@ app.get("/", (req, res) => {
 
 app.use("/users", userRouter);
 app.use("/charts", chartsRouter);
+app.use("/cycle", cycleRouter);
 
 
 module.exports = app;

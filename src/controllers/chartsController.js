@@ -9,7 +9,7 @@ const register = async (req, res) => {
 
         if(registeredChart) {
             res.status(201).send({
-                "message": "Novo exercício cadastrado!",
+                "message": "The exercise was registered!",
                 registeredChart
             })
         }
@@ -56,8 +56,8 @@ const deleteById = async (req, res) => {
             }
         await getChart.delete()
         res.status(200).json([{
-            "mensagem": "The exercise was successfully deleted!",
-            "Atleta deletada": getChart
+            "message": "The exercise was successfully deleted!",
+            "Deleted exercise": getChart
         }])
     } catch (error) {
         if (error.statusCode) {

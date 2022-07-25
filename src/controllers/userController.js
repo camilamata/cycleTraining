@@ -13,7 +13,7 @@ const register = async (req, res) => {
 
         if(registeredUser) {
             res.status(201).send({
-                "message": "Atleta cadastrada com sucesso!",
+                "message": "Athlete successfully registered!",
                 registeredUser
             })
         }
@@ -29,18 +29,18 @@ const getByName = async(req, res) => {
         const foundUser = await userModel.find({name: {$regex : name, $options: 'i'}})
 
         if(!foundUser) {
-            throw new Error ("Nenhuma atleta com esse nome. Tente novamente")
+            throw new Error ("No athletes with this name. Try again.")
         }
         
         res.status(200).json({
-            "Buscando por": req.query,
-            "Encontramos as seguintes atletas": foundUser
+            "Searching for": req.query,
+            "We found these athletes": foundUser
         });
     } catch (error) {
         console.error(error);
         response.status(500).json({
             message: error.message,
-            details: "Sua busca foi inválida"
+            details: "Invalid search."
         });
     }
 };
@@ -54,14 +54,14 @@ const deleteById = async (req, res) => {
          
                 throw {
                     statusCode: 404,
-                    message: "Nenhuma atleta com esse ID.",
+                    message: "No athletes with this ID.",
                     query: req.params
                 }
             }
         await getUser.delete()
         res.status(200).json([{
-            "mensagem": "Atleta deletada com sucesso.",
-            "Atleta deletada": getUser}])
+            "message": "The athlete was successfully deleted!",
+            "Deleted athlet": getUser}])
     } catch (error) {
         if (error.statusCode) {
             res.status(error.statusCode).json(error)
@@ -80,7 +80,7 @@ const updateUser = async (req, res) => {
         if (!getUser) {
             throw {
                 statusCode: 404,
-                message: "Não conseguimos localizar essa atleta."                
+                message: "No athletes with this ID."                
             }
         }
 
@@ -93,7 +93,7 @@ const updateUser = async (req, res) => {
         const updatedUser = await getUser.save()
 
         res.status(200).json({
-            "O cadastro da atleta atualizado com sucesso!": updatedUser
+            "The athlete was successfully updated!": updatedUser
         })
         
     } catch (error) {
