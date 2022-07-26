@@ -43,7 +43,7 @@ Continue a leitura para saber mais!
      |   app.js
      |
      📂---controllers
-****     |
+     |
      |   chartsController.js
      |   cycleController.js
      |   userController.js
